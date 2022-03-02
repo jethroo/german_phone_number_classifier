@@ -13,9 +13,9 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.7.0'
 
   spec.summary = 'Library for checking in which category a german phone' \
-  ' number falls in regards to Bundesnetzagentur classes.'
+                 ' number falls in regards to Bundesnetzagentur classes.'
   spec.description = 'Library for checking in which category a german phone' \
-  ' number falls in regards to Bundesnetzagentur classes.'
+                     ' number falls in regards to Bundesnetzagentur classes.'
   spec.homepage      = 'https://github.com/jethroo/german_phone_number_classifier'
   spec.license       = 'MIT'
 
@@ -34,8 +34,12 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'phony', '~> 2.19.9'
+
   spec.add_development_dependency 'bundler', '~> 2.3'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.4'
   spec.add_development_dependency 'rubocop', '~> 1.25'
+  spec.add_development_dependency 'rubocop-rspec'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end

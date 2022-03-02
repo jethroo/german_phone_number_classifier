@@ -10,11 +10,20 @@ RSpec.describe GermanPhoneNumberClassifier do
     # https://en.wikipedia.org/wiki/Fictitious_telephone_number
 
     context 'when a non german number is provided' do
-      it 'should classify as non german' do
+      it 'classifies as non german' do
         ['+33 1 99 1234', '+61 491 570 006', '+46 31-3900600'].each do |number|
           expect(GermanPhoneNumberClassifier.classify(number))
-            .to eq(:non_german)
+            .to eq(:non_german_phone_number)
         end
+      end
+    end
+
+    context 'when no or invalid phone number is provided' do
+      it 'classifies as no phone number' do
+        expect(GermanPhoneNumberClassifier.classify(nil))
+          .to eq(:no_phone_number)
+        expect(GermanPhoneNumberClassifier.classify('no a phone number'))
+          .to eq(:no_phone_number)
       end
     end
   end

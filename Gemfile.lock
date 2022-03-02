@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     german_phone_number_classifier (0.1.0)
+      phony (~> 2.19.9)
 
 GEM
   remote: https://rubygems.org/
@@ -11,6 +12,7 @@ GEM
     parallel (1.21.0)
     parser (3.1.1.0)
       ast (~> 2.4.1)
+    phony (2.19.9)
     rainbow (3.1.1)
     rake (10.5.0)
     regexp_parser (2.2.1)
@@ -39,6 +41,8 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.16.0)
       parser (>= 3.1.1.0)
+    rubocop-rspec (2.9.0)
+      rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
     unicode-display_width (2.1.0)
 
@@ -51,6 +55,7 @@ DEPENDENCIES
   rake (~> 10.0)
   rspec (~> 3.4)
   rubocop (~> 1.25)
+  rubocop-rspec
 
 BUNDLED WITH
    2.3.5
