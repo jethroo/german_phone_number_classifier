@@ -37,6 +37,7 @@ module GermanPhoneNumberClassifier
     return :authoritative if authoritive?(national_phone_number)
     return :provider_selection if national_phone_number.match(/^010\d+$/)
     return :high_connection if national_phone_number.match(/^0137\d+$/)
+    return :service_hotline if national_phone_number.match(/^0180\d+$/)
 
     :unknown_class
   end

@@ -55,5 +55,14 @@ RSpec.describe GermanPhoneNumberClassifier do
         end
       end
     end
+
+    context 'when number is a service hotline' do
+      %w[+49180666666 0180666666].each do |number|
+        it "classifies #{number} as service hotline" do
+          expect(GermanPhoneNumberClassifier.classify(number))
+            .to eq(:service_hotline)
+        end
+      end
+    end
   end
 end
