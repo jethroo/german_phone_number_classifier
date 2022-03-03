@@ -27,8 +27,8 @@ RSpec.describe GermanPhoneNumberClassifier do
       end
     end
 
-    context 'when a authority number is provided' do
-      # 116xyz or 118xy are social or informative numbers and a grouped under
+    context 'when an authority number is provided' do
+      # 116xyz or 118xy are social or informative numbers and are grouped under
       # authoritative for now as simplification
       %w[110 112 115 116123 11833].each do |number|
         it "classifies #{number} as authoritative" do
@@ -43,6 +43,15 @@ RSpec.describe GermanPhoneNumberClassifier do
         it "classifies #{number} as provider selection" do
           expect(GermanPhoneNumberClassifier.classify(number))
             .to eq(:provider_selection)
+        end
+      end
+    end
+
+    context 'when number is reserved for high connection count' do
+      %w[+4913712345 013755656].each do |number|
+        it "classifies #{number} as high connectivity number" do
+          expect(GermanPhoneNumberClassifier.classify(number))
+            .to eq(:high_connection)
         end
       end
     end

@@ -35,8 +35,10 @@ module GermanPhoneNumberClassifier
 
   def self.classify_national(national_phone_number)
     return :authoritative if authoritive?(national_phone_number)
+    return :provider_selection if national_phone_number.match(/^010\d+$/)
+    return :high_connection if national_phone_number.match(/^0137\d+$/)
 
-    :provider_selection if provider_selection?(national_phone_number)
+    :unknown_class
   end
 
   def self.prepend_zero(national_blocks)
@@ -52,11 +54,6 @@ module GermanPhoneNumberClassifier
     end
   end
 
-  def self.provider_selection?(national_phone_number)
-    !!national_phone_number.match(/^010\d+$/)
-  end
-
   private_class_method :prepend_zero, :classify_national,
-                       :classify_international, :authoritive?,
-                       :provider_selection?
+                       :classify_international, :authoritive?
 end
