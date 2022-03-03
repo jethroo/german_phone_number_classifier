@@ -22,7 +22,9 @@ RSpec.describe GermanPhoneNumberClassifier do
       it 'classifies as no phone number' do
         expect(GermanPhoneNumberClassifier.classify(nil))
           .to eq(:no_phone_number)
-        expect(GermanPhoneNumberClassifier.classify('no a phone number'))
+        expect(GermanPhoneNumberClassifier.classify('not a phone number'))
+          .to eq(:no_phone_number)
+        expect(GermanPhoneNumberClassifier.classify('+49not a phone number'))
           .to eq(:no_phone_number)
       end
     end
