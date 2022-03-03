@@ -53,3 +53,9 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
       run: bundle exec rspec
+    - name: Upload coverage results
+      uses: actions/upload-artifact@master
+      if: ${{ matrix.ruby-version }} == '2.7.2' # we only need one report from the build matrix
+      with:
+        name: coverage-report
+        path: coverage

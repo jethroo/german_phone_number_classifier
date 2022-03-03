@@ -35,6 +35,7 @@ module GermanPhoneNumberClassifier
 
   def self.classify_national(national_phone_number)
     return :authoritative if authoritive?(national_phone_number)
+
     :provider_selection if provider_selection?(national_phone_number)
   end
 
