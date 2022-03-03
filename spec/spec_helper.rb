@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'simplecov'
+SimpleCov.start
+
 require 'byebug'
 require 'bundler/setup'
 require 'german_phone_number_classifier'
