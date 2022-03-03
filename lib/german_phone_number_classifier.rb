@@ -30,11 +30,12 @@ module GermanPhoneNumberClassifier
     return :non_german_phone_number unless cc == '49'
     return :no_phone_number if national_blocks.join.length.zero?
 
-    classify_national_blocks(prepend_zero(national_blocks))
+    classify_national(prepend_zero(national_blocks))
   end
 
   def self.classify_national(national_phone_number)
-    :authoritative if authoritive?(national_phone_number)
+    return :authoritative if authoritive?(national_phone_number)
+    :provider_selection if provider_selection?(national_phone_number)
   end
 
   def self.prepend_zero(national_blocks)
@@ -50,6 +51,11 @@ module GermanPhoneNumberClassifier
     end
   end
 
+  def self.provider_selection?(national_phone_number)
+    !!national_phone_number.match(/^010\d+$/)
+  end
+
   private_class_method :prepend_zero, :classify_national,
-                       :classify_international, :authoritive?
+                       :classify_international, :authoritive?,
+                       :provider_selection?
 end

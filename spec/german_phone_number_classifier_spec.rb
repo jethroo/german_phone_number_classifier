@@ -37,5 +37,14 @@ RSpec.describe GermanPhoneNumberClassifier do
         end
       end
     end
+
+    context 'when provider selection number is provided' do
+      %w[01012 +491012 01088 +491088].each do |number|
+        it "classifies #{number} as provider selection" do
+          expect(GermanPhoneNumberClassifier.classify(number))
+            .to eq(:provider_selection)
+        end
+      end
+    end
   end
 end
