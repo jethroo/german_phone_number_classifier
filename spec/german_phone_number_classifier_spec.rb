@@ -30,7 +30,7 @@ RSpec.describe GermanPhoneNumberClassifier do
     context 'when a authority number is provided' do
       # 116xyz or 118xy are social or informative numbers and a grouped under
       # authoritative for now as simplification
-      ['110','112','115', '116123', '11833'].each do |number|
+      %w[110 112 115 116123 11833].each do |number|
         it "classifies #{number} as authoritative" do
           expect(GermanPhoneNumberClassifier.classify(number))
             .to eq(:authoritative)

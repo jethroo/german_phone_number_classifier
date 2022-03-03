@@ -34,13 +34,22 @@ module GermanPhoneNumberClassifier
   end
 
   def self.classify_national(national_phone_number)
-    :authoritative
+    :authoritative if authoritive?(national_phone_number)
   end
 
   def self.prepend_zero(national_blocks)
     national_blocks.dup.prepend('0').join
   end
 
+  def self.authoritive?(national_phone_number)
+    case national_phone_number
+    when '110', '112', '115', /^116\d{3}$/, /^118\d{2}$/
+      true
+    else
+      false
+    end
+  end
+
   private_class_method :prepend_zero, :classify_national,
-                       :classify_international
+                       :classify_international, :authoritive?
 end
