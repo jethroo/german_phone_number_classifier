@@ -34,7 +34,7 @@ module GermanPhoneNumberClassifier
   end
 
   def self.classify_national(national_phone_number)
-    p national_phone_number
+    :authoritative
   end
 
   def self.prepend_zero(national_blocks)
