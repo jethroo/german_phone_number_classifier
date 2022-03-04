@@ -39,6 +39,7 @@ module GermanPhoneNumberClassifier
     return :high_connection if national_phone_number.match(/^0137\d+$/)
     return :service_hotline if national_phone_number.match(/^0180\d+$/)
     return :vpn if national_phone_number.match(/^018\d+$/)
+    return :online_and_traffic if national_phone_number.match(/^019\d+$/)
 
     :unknown_class
   end

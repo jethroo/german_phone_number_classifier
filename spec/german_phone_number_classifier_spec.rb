@@ -73,5 +73,14 @@ RSpec.describe GermanPhoneNumberClassifier do
         end
       end
     end
+
+    context 'when number is reserved for online and traffic services' do
+      %w[+491921232 01986115 00491982].each do |number|
+        it "classifies #{number} as online and traffic number" do
+          expect(GermanPhoneNumberClassifier.classify(number))
+            .to eq(:online_and_traffic)
+        end
+      end
+    end
   end
 end
