@@ -64,5 +64,14 @@ RSpec.describe GermanPhoneNumberClassifier do
         end
       end
     end
+
+    context 'when number is reserved for VPN' do
+      %w[+49181123112 0189666666 0049186789].each do |number|
+        it "classifies #{number} as vpn number" do
+          expect(GermanPhoneNumberClassifier.classify(number))
+            .to eq(:vpn)
+        end
+      end
+    end
   end
 end
