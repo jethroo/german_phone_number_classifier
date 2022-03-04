@@ -10,7 +10,7 @@ RSpec.describe GermanPhoneNumberClassifier do
     # https://en.wikipedia.org/wiki/Fictitious_telephone_number
 
     context 'when a non german international number is provided' do
-      ['+33 1 99 1234', '+61 491 570 006', '+46 31-3900600'].each do |number|
+      ['+33 1 99 1234', '0061 491 570 006', '+46 31-3900600'].each do |number|
         it "classifies #{number} as non german" do
           expect(GermanPhoneNumberClassifier.classify(number))
             .to eq(:non_german_phone_number)
@@ -39,7 +39,7 @@ RSpec.describe GermanPhoneNumberClassifier do
     end
 
     context 'when provider selection number is provided' do
-      %w[01012 +491012 01088 +491088].each do |number|
+      %w[01012 +491012 01088 00491088].each do |number|
         it "classifies #{number} as provider selection" do
           expect(GermanPhoneNumberClassifier.classify(number))
             .to eq(:provider_selection)
@@ -48,7 +48,7 @@ RSpec.describe GermanPhoneNumberClassifier do
     end
 
     context 'when number is reserved for high connection count' do
-      %w[+4913712345 013755656].each do |number|
+      %w[004913712345 +4913712345 013755656].each do |number|
         it "classifies #{number} as high connectivity number" do
           expect(GermanPhoneNumberClassifier.classify(number))
             .to eq(:high_connection)
@@ -57,7 +57,7 @@ RSpec.describe GermanPhoneNumberClassifier do
     end
 
     context 'when number is a service hotline' do
-      %w[+49180666666 0180666666].each do |number|
+      %w[+49180666666 0180666666 0049180666666].each do |number|
         it "classifies #{number} as service hotline" do
           expect(GermanPhoneNumberClassifier.classify(number))
             .to eq(:service_hotline)

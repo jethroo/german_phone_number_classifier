@@ -14,7 +14,7 @@ module GermanPhoneNumberClassifier
 
     scanned = phone_number.scan(/(\+|\d)/).join
 
-    return classify_international(scanned) if scanned.start_with?('+')
+    return classify_international(scanned) if scanned.start_with?('+', '00')
     return classify_national(scanned) if scanned.start_with?('0', '1')
 
     :no_phone_number
