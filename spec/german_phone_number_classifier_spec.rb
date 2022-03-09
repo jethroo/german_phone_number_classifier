@@ -82,5 +82,14 @@ RSpec.describe GermanPhoneNumberClassifier do
         end
       end
     end
+
+    context 'when number is a personal registered phone number' do
+      %w[+497001234 07001234 00497001234].each do |number|
+        it "classifies #{number} as personal_number" do
+          expect(GermanPhoneNumberClassifier.classify(number))
+            .to eq(:personal_number)
+        end
+      end
+    end
   end
 end

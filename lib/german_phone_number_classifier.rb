@@ -33,6 +33,7 @@ module GermanPhoneNumberClassifier
     classify_national(prepend_zero(national_blocks))
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def self.classify_national(national_phone_number)
     return :authoritative if authoritive?(national_phone_number)
     return :provider_selection if national_phone_number.match(/^010\d+$/)
@@ -40,9 +41,11 @@ module GermanPhoneNumberClassifier
     return :service_hotline if national_phone_number.match(/^0180\d+$/)
     return :vpn if national_phone_number.match(/^018\d+$/)
     return :online_and_traffic if national_phone_number.match(/^019\d+$/)
+    return :personal_number if national_phone_number.match(/^0700\d+$/)
 
     :unknown_class
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def self.prepend_zero(national_blocks)
     national_blocks.dup.prepend('0').join
