@@ -91,5 +91,24 @@ RSpec.describe GermanPhoneNumberClassifier do
         end
       end
     end
+
+    context 'when number is a personal registered phone number' do
+      %w[+498001234 08001234 00498001234].each do |number|
+        it "classifies #{number} as free service number" do
+          expect(GermanPhoneNumberClassifier.classify(number))
+            .to eq(:free_service_hotline)
+        end
+      end
+    end
+    # TODO: 0900 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0900/0900_node.html
+    # TODO: 09009 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/09009/9009_node.html
+
+    # TODO: 0150 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/MobileDienste/mobiledienste_node.html
+    # TODO: 0160 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/MobileDienste/mobiledienste_node.html
+    # TODO: 0170 # 0150 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/MobileDienste/mobiledienste_node.html
+
+    # TODO: 031x https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/031/031_node.html
+
+    # TODO: 032 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/032/032_node.html
   end
 end
