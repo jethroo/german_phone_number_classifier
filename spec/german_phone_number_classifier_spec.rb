@@ -119,9 +119,16 @@ RSpec.describe GermanPhoneNumberClassifier do
       end
     end
 
-    # TODO: 0150 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/MobileDienste/mobiledienste_node.html
-    # TODO: 0160 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/MobileDienste/mobiledienste_node.html
-    # TODO: 0170 # 0150 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/MobileDienste/mobiledienste_node.html
+    context 'when number is a mobile phone number' do
+      %w[+491501234 01501234 00491501234
+         +491601234 01601234 00491601234
+         +491701234 01701234 00491701234].each do |number|
+        it "classifies #{number} as mobile number" do
+          expect(GermanPhoneNumberClassifier.classify(number))
+            .to eq(:mobile)
+        end
+      end
+    end
 
     # TODO: 031x https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/031/031_node.html
 

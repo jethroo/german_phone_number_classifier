@@ -33,7 +33,7 @@ module GermanPhoneNumberClassifier
     classify_national(prepend_zero(national_blocks))
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity
   def self.classify_national(national_phone_number)
     return :authoritative if authoritive?(national_phone_number)
     return :provider_selection if national_phone_number.match(/^010\d+$/)
@@ -45,10 +45,13 @@ module GermanPhoneNumberClassifier
     return :free_service_hotline if national_phone_number.match(/^0800\d+$/)
     return :dialer if national_phone_number.match(/^09009\d+$/)
     return :premium_service_hotline if national_phone_number.match(/^0900\d+$/)
+    return :mobile if national_phone_number.match(/^015\d+$/)
+    return :mobile if national_phone_number.match(/^016\d+$/)
+    return :mobile if national_phone_number.match(/^017\d+$/)
 
     :unknown_class
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity
 
   def self.prepend_zero(national_blocks)
     national_blocks.dup.prepend('0').join
