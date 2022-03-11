@@ -43,6 +43,7 @@ module GermanPhoneNumberClassifier
     return :online_and_traffic if national_phone_number.match(/^019\d+$/)
     return :personal_number if national_phone_number.match(/^0700\d+$/)
     return :free_service_hotline if national_phone_number.match(/^0800\d+$/)
+    return :dialer if national_phone_number.match(/^09009\d+$/)
     return :premium_service_hotline if national_phone_number.match(/^0900\d+$/)
 
     :unknown_class

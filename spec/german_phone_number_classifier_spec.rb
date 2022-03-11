@@ -103,15 +103,21 @@ RSpec.describe GermanPhoneNumberClassifier do
 
     context 'when number is a premium service phone number' do
       %w[+499001234 09001234 00499001234].each do |number|
-        it "classifies #{number} as free service number" do
+        it "classifies #{number} as premium service number" do
           expect(GermanPhoneNumberClassifier.classify(number))
             .to eq(:premium_service_hotline)
         end
       end
     end
 
-    # TODO: 0900 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0900/0900_node.html
-    # TODO: 09009 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/09009/9009_node.html
+    context 'when number is a dialer phone number' do
+      %w[+4990091234 090091234 004990091234].each do |number|
+        it "classifies #{number} as dialer number" do
+          expect(GermanPhoneNumberClassifier.classify(number))
+            .to eq(:dialer)
+        end
+      end
+    end
 
     # TODO: 0150 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/MobileDienste/mobiledienste_node.html
     # TODO: 0160 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/MobileDienste/mobiledienste_node.html
