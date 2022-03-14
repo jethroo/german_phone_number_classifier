@@ -130,8 +130,14 @@ RSpec.describe GermanPhoneNumberClassifier do
       end
     end
 
-    # TODO: 031x https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/031/031_node.html
-
+    context 'when number is a test provider number' do
+      %w[+49310 0310 0049310 +49311 0311 0049311].each do |number|
+        it "classifies #{number} as test provider number" do
+          expect(GermanPhoneNumberClassifier.classify(number))
+            .to eq(:test_provider)
+        end
+      end
+    end
     # TODO: 032 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/032/032_node.html
   end
 end

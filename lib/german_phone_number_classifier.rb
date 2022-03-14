@@ -48,6 +48,7 @@ module GermanPhoneNumberClassifier
     return :mobile if national_phone_number.match(/^015\d+$/)
     return :mobile if national_phone_number.match(/^016\d+$/)
     return :mobile if national_phone_number.match(/^017\d+$/)
+    return :test_provider if national_phone_number.match(/^031(0|1)$/)
 
     :unknown_class
   end
