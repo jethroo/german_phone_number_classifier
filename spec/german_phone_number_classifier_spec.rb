@@ -138,6 +138,24 @@ RSpec.describe GermanPhoneNumberClassifier do
         end
       end
     end
+
+    context 'when number is a known landline number' do
+      %w[+49301234 0301234 0049301234].each do |number|
+        it "classifies #{number} as landline number" do
+          expect(GermanPhoneNumberClassifier.classify(number))
+            .to eq(:landline)
+        end
+      end
+    end
+
+    context 'when number is unknown' do
+      %w[+499999934 09999934 00499999934].each do |number|
+        it "classifies #{number} as unknown" do
+          expect(GermanPhoneNumberClassifier.classify(number))
+            .to eq(:unknown_class)
+        end
+      end
+    end
     # TODO: 032 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/032/032_node.html
     # TODO: landline
   end

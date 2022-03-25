@@ -50,6 +50,7 @@ module GermanPhoneNumberClassifier
     return :mobile if national_phone_number.match(/^016\d+$/)
     return :mobile if national_phone_number.match(/^017\d+$/)
     return :test_provider if national_phone_number.match(/^031(0|1)$/)
+    return :landline if landline?(national_phone_number)
 
     :unknown_class
   end
@@ -68,6 +69,16 @@ module GermanPhoneNumberClassifier
     end
   end
 
+  def self.landline?(national_phone_number)
+    return false unless national_phone_number.length > 5
+
+    (3..5).each do |n|
+      return true if GermanPhoneNumberClassifier::GERMAN_LANDLINE_PREFIXES[national_phone_number[0, n].to_i]
+    end
+
+    false
+  end
+
   private_class_method :prepend_zero, :classify_national,
-                       :classify_international, :authoritive?
+                       :classify_international, :authoritive?, :landline?
 end
