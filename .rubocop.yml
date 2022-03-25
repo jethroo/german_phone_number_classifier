@@ -6,3 +6,6 @@ Metrics/BlockLength:
 Metrics/ModuleLength:
   Exclude:
     - 'lib/german_phone_number_classifier/german_landline_prefixes.rb'
+Metrics/MethodLength:
+  Exclude:
+    - 'lib/german_phone_number_classifier.rb'

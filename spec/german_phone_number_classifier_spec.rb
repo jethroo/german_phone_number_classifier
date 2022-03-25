@@ -140,7 +140,9 @@ RSpec.describe GermanPhoneNumberClassifier do
     end
 
     context 'when number is a known landline number' do
-      %w[+49301234 0301234 0049301234].each do |number|
+      %w[+4930120849110 030120849110 004930120849110
+         +4922164308010 022164308010 004922164308010
+         +4933274883333 033274883333 004933274883333].each do |number|
         it "classifies #{number} as landline number" do
           expect(GermanPhoneNumberClassifier.classify(number))
             .to eq(:landline)
@@ -157,6 +159,30 @@ RSpec.describe GermanPhoneNumberClassifier do
       end
     end
     # TODO: 032 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/032/032_node.html
-    # TODO: landline
+  end
+
+  describe '.landline_location' do
+    context 'when number is a known landline number' do
+      %w[+4930120849110 030120849110 004930120849110].each do |number|
+        it "classifies #{number} as landline number in Berlin" do
+          expect(GermanPhoneNumberClassifier.landline_location(number))
+            .to eq('Berlin')
+        end
+      end
+
+      %w[+4922164308010 022164308010 004922164308010].each do |number|
+        it "classifies #{number} as landline number in Köln" do
+          expect(GermanPhoneNumberClassifier.landline_location(number))
+            .to eq('Köln')
+        end
+      end
+
+      %w[+4933274883333 033274883333 004933274883333].each do |number|
+        it "classifies #{number} as landline number in Werder Havel" do
+          expect(GermanPhoneNumberClassifier.landline_location(number))
+            .to eq('Werder Havel')
+        end
+      end
+    end
   end
 end

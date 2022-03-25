@@ -23,6 +23,29 @@ module GermanPhoneNumberClassifier
     :no_phone_number
   end
 
+  def self.landline_location(phone_number)
+    return unless classify(phone_number) == :landline
+
+    scanned = phone_number.scan(/(\+|\d)/).join
+    national_number = if scanned.start_with?('+', '00')
+                        _cc, *national_blocks = Phony.split(
+                          Phony.normalize(scanned)
+                        )
+                        prepend_zero(national_blocks)
+                      else
+                        scanned
+                      end
+
+    return unless national_number.length > 5
+
+    (3..5).each do |n|
+      hit = landline_lookup(national_number, n)
+      return hit if hit
+    end
+  end
+
+  # private class methods
+
   def self.classify_international(international_phone_number)
     cc, *national_blocks = Phony.split(
       Phony.normalize(international_phone_number)
@@ -34,7 +57,7 @@ module GermanPhoneNumberClassifier
     classify_national(prepend_zero(national_blocks))
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/PerceivedComplexity
   def self.classify_national(national_phone_number)
     return :authoritative if authoritive?(national_phone_number)
     return :provider_selection if national_phone_number.match(/^010\d+$/)
@@ -54,7 +77,7 @@ module GermanPhoneNumberClassifier
 
     :unknown_class
   end
-  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/PerceivedComplexity
 
   def self.prepend_zero(national_blocks)
     national_blocks.dup.prepend('0').join
@@ -73,12 +96,18 @@ module GermanPhoneNumberClassifier
     return false unless national_phone_number.length > 5
 
     (3..5).each do |n|
-      return true if GermanPhoneNumberClassifier::GERMAN_LANDLINE_PREFIXES[national_phone_number[0, n].to_i]
+      return true if landline_lookup(national_phone_number, n)
     end
 
     false
   end
 
-  private_class_method :prepend_zero, :classify_national,
+  def self.landline_lookup(national_phone_number, length)
+    GermanPhoneNumberClassifier::GERMAN_LANDLINE_PREFIXES[
+      national_phone_number[0, length].to_i
+    ]
+  end
+
+  private_class_method :prepend_zero, :classify_national, :landline_lookup,
                        :classify_international, :authoritive?, :landline?
 end
