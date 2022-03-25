@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'csv'
+require 'json'
+
+# Download landline number prefixes to tmp
+# https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/Rufnummern/ONRufnr/Vorwahlverzeichnis_ONB.zip.zip?__blob=publicationFile&v=286
+
+csv_file = File.open('./tmp/NVONB.INTERNET.20220323.ONB.csv')
+data = {}
+
+CSV.foreach(csv_file, headers: false, col_sep: ';') do |row|
+  data[row[0]] = row[1]
+end
+
+formated_hash = JSON.pretty_generate(data).gsub(/(?:"|')(?<key>[^"]*)(?:"|')(?=:)(?::)/) do |_|
+  "#{Regexp.last_match(:key)}:"
+end
+
+formated_hash.gsub!(':', '=>')
+
+File.write('./tmp/parsed_onb', formated_hash)

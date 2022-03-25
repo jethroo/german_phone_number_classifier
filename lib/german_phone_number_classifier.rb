@@ -2,6 +2,7 @@
 
 require 'phony'
 require 'german_phone_number_classifier/version'
+require 'german_phone_number_classifier/german_landline_prefixes'
 
 # module providing classifier method for phone numbers
 # as specified by the Bundesnetzagentur

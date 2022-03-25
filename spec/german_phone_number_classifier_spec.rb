@@ -139,5 +139,6 @@ RSpec.describe GermanPhoneNumberClassifier do
       end
     end
     # TODO: 032 https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/032/032_node.html
+    # TODO: landline
   end
 end
