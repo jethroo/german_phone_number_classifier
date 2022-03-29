@@ -38,10 +38,12 @@ module GermanPhoneNumberClassifier
 
     return unless national_number.length > 5
 
-    (3..5).each do |n|
+    (3..6).each do |n|
       hit = landline_lookup(national_number, n)
       return hit if hit
     end
+
+    nil
   end
 
   # private class methods
@@ -95,7 +97,7 @@ module GermanPhoneNumberClassifier
   def self.landline?(national_phone_number)
     return false unless national_phone_number.length > 5
 
-    (3..5).each do |n|
+    (3..6).each do |n|
       return true if landline_lookup(national_phone_number, n)
     end
 
