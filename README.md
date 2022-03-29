@@ -44,7 +44,7 @@ Following categories are defined:
 * `:mobile`
 * `:premium_service_hotline`
 * `:test_provider`
-* `:landline`
+* [`:landline`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/ONRufnr/ortsnetze_node.html)
 * `:unknown_class`
 
 ### .landline_location
