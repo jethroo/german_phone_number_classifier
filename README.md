@@ -32,10 +32,10 @@ Following categories are defined:
 
 * `:no_phone_number`
 * `:non_german_phone_number`
-* `:authoritative`
-* `:provider_selection`
-* `:high_connection`
-* `:service_hotline`
+* `:authoritative` see [here](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/Notruf/Notruf_node.html), [here](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/115/115_node.html), [here](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/116xyz/116xyz_node.html) and [here](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/118xy/118_node.html)
+* [`:provider_selection`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/010/010xy_node.html)
+* [`:high_connection`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0137/start.html)
+* [`:service_hotline`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0180/start.html)
 * `:vpn`
 * `:online_and_traffic`
 * `:personal_number`
