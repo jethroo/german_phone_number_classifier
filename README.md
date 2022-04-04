@@ -36,14 +36,14 @@ Following categories are defined:
 * [`:provider_selection`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/010/010xy_node.html)
 * [`:high_connection`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0137/start.html)
 * [`:service_hotline`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0180/start.html)
-* `:vpn`
-* `:online_and_traffic`
-* `:personal_number`
-* `:free_service_hotline`
-* `:dialer`
-* `:mobile`
-* `:premium_service_hotline`
-* `:test_provider`
+* `:vpn` see [here](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/018/018_Node.html) and [here] (https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0181/181_node.html)
+* `:online_and_traffic` see [here](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/019xyz/019xyz_node.html) and [here] (https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/Verkehrslenkungsnummern/VerkehrslenkungsNrn_node.html)
+* [`:personal_number`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0700/0700_node.html)
+* [`:free_service_hotline`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0180/start.html)
+* [`:dialer`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/09009/9009_node.html)
+* [`:mobile`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/MobileDienste/mobiledienste_node.html)
+* [`:premium_service_hotline`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0900/0900_node.html)
+* [`:test_provider`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/031/031_node.html)
 * [`:landline`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/ONRufnr/ortsnetze_node.html)
 * `:unknown_class`
 
