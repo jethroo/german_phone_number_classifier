@@ -12,8 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.7.0'
 
-  spec.summary = 'Library for checking in which category a german phone' \
-                 ' number falls in regards to Bundesnetzagentur classes.'
+  spec.summary = 'Classifying german phone numbers'
   spec.description = 'Library for checking in which category a german phone' \
                      ' number falls in regards to Bundesnetzagentur classes.'
   spec.homepage      = 'https://github.com/jethroo/german_phone_number_classifier'
@@ -41,9 +40,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.4'
   spec.add_development_dependency 'rubocop', '~> 1.25'
-  spec.add_development_dependency 'rubocop-rspec'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.10'
   spec.add_development_dependency 'simplecov', '~> 0.21.2'
-  spec.add_development_dependency 'simplecov-console'
+  spec.add_development_dependency 'simplecov-console', '~> 0.9'
 
   spec.metadata['rubygems_mfa_required'] = 'true'
 end

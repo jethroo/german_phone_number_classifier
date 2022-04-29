@@ -71,9 +71,9 @@ DEPENDENCIES
   rake (~> 10.0)
   rspec (~> 3.4)
   rubocop (~> 1.25)
-  rubocop-rspec
+  rubocop-rspec (~> 2.10)
   simplecov (~> 0.21.2)
-  simplecov-console
+  simplecov-console (~> 0.9)
 
 BUNDLED WITH
    2.3.5

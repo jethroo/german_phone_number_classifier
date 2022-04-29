@@ -1,15 +1,19 @@
-[![Build](https://github.com/jethroo/german_phone_number_classifier/actions/workflows/ruby.yml/badge.svg)](https://github.com/jethroo/german_phone_number_classifier/actions/workflows/ruby.yml)
+[![Rspec & Coverage](https://github.com/jethroo/german_phone_number_classifier/actions/workflows/ruby.yml/badge.svg)](https://github.com/jethroo/german_phone_number_classifier/actions/workflows/ruby.yml)
 
 # German Phone Number Classifier
 
 Library for checking in which category a german phone number falls in regards to [Bundesnetzagentur classes](https://www.bundesnetzagentur.de/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/start.html).
+
+## Ruby Version
+
+This gem is developed for ruby versions `'>= 2.7.0'`.
 
 ## Usage
 
 Add the gem to your Gemfile:
 
 ```ruby
-gem 'german_phone_number_classifier'
+gem 'german_phone_number_classifier', '1.0.0.pre'
 ```
 
 and run `bundle install`.
