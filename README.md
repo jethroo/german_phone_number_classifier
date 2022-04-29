@@ -1,3 +1,5 @@
+[![Build](https://github.com/jethroo/german_phone_number_classifier/actions/workflows/ruby.yml/badge.svg)](https://github.com/jethroo/german_phone_number_classifier/actions/workflows/ruby.yml)
+
 # German Phone Number Classifier
 
 Library for checking in which category a german phone number falls in regards to [Bundesnetzagentur classes](https://www.bundesnetzagentur.de/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/start.html).
