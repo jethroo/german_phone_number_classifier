@@ -41,7 +41,7 @@ Following categories are defined:
 * [`:provider_selection`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/010/010xy_node.html)
 * [`:high_connection`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0137/start.html)
 * [`:service_hotline`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0180/start.html)
-* `:vpn` see [here](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/018/018_Node.html) and [here] (https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0181/181_node.html)
+* `:vpn` see [here](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/018/018_Node.html) and [here](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0181/181_node.html)
 * `:online_and_traffic` see [here](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/019xyz/019xyz_node.html) and [here] (https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/Verkehrslenkungsnummern/VerkehrslenkungsNrn_node.html)
 * [`:personal_number`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0700/0700_node.html)
 * [`:free_service_hotline`](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0180/start.html)
