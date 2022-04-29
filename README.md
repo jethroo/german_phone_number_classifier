@@ -7,8 +7,7 @@ Library for checking in which category a german phone number falls in regards to
 Add the gem to your Gemfile:
 
 ```ruby
-# TODO to be releases on rubygems
-gem 'german_phone_number_classifier', github: 'jethroo/german_phone_number_classifier', branch: 'master'
+gem 'german_phone_number_classifier'
 ```
 
 and run `bundle install`.
@@ -77,3 +76,8 @@ Notes:
 ## License
 
 see [here](LICENSE)
+
+## Authors/Contributors
+
+- [Homeday](https://github.com/homeday-de)
+- [Carsten Wirth](http://github.com/jethroo)
