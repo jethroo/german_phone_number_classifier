@@ -13,8 +13,8 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.7.0'
 
   spec.summary = 'Classifying german phone numbers'
-  spec.description = 'Library for checking in which category a german phone' \
-                     ' number falls in regards to Bundesnetzagentur classes.'
+  spec.description = 'Library for checking in which category a german phone ' \
+                     'number falls in regards to Bundesnetzagentur classes.'
   spec.homepage      = 'https://github.com/jethroo/german_phone_number_classifier'
   spec.license       = 'MIT'
 

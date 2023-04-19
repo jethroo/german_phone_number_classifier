@@ -2,7 +2,11 @@ AllCops:
   SuggestExtensions: false
   NewCops: enable
 Metrics/BlockLength:
-  IgnoredMethods: ['describe', 'context']
+  AllowedMethods: ['describe', 'context']
+
+Metrics/CollectionLiteralLength:
+  Exclude:
+    - 'lib/german_phone_number_classifier/german_landline_prefixes.rb'
 Metrics/ModuleLength:
   Exclude:
     - 'lib/german_phone_number_classifier/german_landline_prefixes.rb'

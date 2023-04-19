@@ -54,7 +54,7 @@ module GermanPhoneNumberClassifier
     )
 
     return :non_german_phone_number unless cc == '49'
-    return :no_phone_number if national_blocks.join.length.zero?
+    return :no_phone_number if national_blocks.join.empty?
 
     classify_national(prepend_zero(national_blocks))
   end
