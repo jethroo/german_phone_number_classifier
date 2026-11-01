@@ -2,7 +2,7 @@
 
 # German Phone Number Classifier
 
-Library for checking in which category a german phone number falls in regards to [Bundesnetzagentur classes](https://www.bundesnetzagentur.de/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/start.html).
+Library for checking in which category a german phone number falls in regards to [Bundesnetzagentur classes](https://www.bundesnetzagentur.de/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Nummerierung/start.html) without doing any additional API calls.  
 
 ## Ruby Version
 
